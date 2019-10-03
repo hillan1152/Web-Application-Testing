@@ -1,13 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from './App';
+import App, { addBall } from './App';
 
-const { setBalls, addBall } = require('./App');
 
 test('renders without crashing', () => {
-  render(<App/>)
+  render(<App />);
 });
 
-test('Ball Counts', () => {
-  expect(setBalls({addBall})).toBeLessThanOrEqual(3);
+test('Add a Ball', () => {
+  let actual;
+  let expected;
+  actual = addBall();
+  expected = 3;
+  expect(actual).toBeLessThanOrEqual(expected);
 })
